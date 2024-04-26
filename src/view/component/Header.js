@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link, NavLink } from 'react-router-dom';
 
 
 function Header() {
@@ -26,7 +27,7 @@ function Header() {
 
             <Navbar expand="lg" className="maincolor nav-style">
               <Container fluid>
-                <Navbar.Brand href="#"><sapn className="pacifico-regular extra1"> Clothe</sapn><span className='pacifico-regular extra'>Compiler </span></Navbar.Brand>
+                <Navbar.Brand to="#"><sapn className="pacifico-regular extra1"> Clothe</sapn><span className='pacifico-regular extra'>Compiler </span></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                   <Nav
@@ -34,19 +35,19 @@ function Header() {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                   >
-                    <Nav.Link href='/'>HOME</Nav.Link>
-                    {/* <Nav.Link href='/Detail'>DETAILS</Nav.Link> */}
-                    <Nav.Link href='/Shop'>SHOP</Nav.Link>
+                    <NavLink className='Link' activeClassName='activeLink' to='/'>HOME</NavLink>
+                    {/* <Link to='/Detail'>DETAILS</Link> */}
+                    <NavLink className='Link' activeClassName='activeLink' to='/Shop'>SHOP</NavLink>
 
 
                     {user ?
 
 
-                      <Nav.Link href='/Logout'>LOGOUT</Nav.Link>
+                      <Link className='Link' to='/Logout'>LOGOUT</Link>
                       :
                       <>
-                        <Nav.Link href='/Login'>LOGIN</Nav.Link>
-                        <Nav.Link href='/register'>SIGNUP</Nav.Link>
+                        <Link className='Link' to='/Login'>LOGIN</Link>
+                        <Link className='Link' to='/register'>SIGNUP</Link>
                       </>
                     }
 
@@ -56,18 +57,18 @@ function Header() {
 
 
                     {/* <NavDropdown title="CATEGORIES" id="navbarScrollingDropdown">
-                      <NavDropdown.Item href="#action3">Men</NavDropdown.Item>
-                      <NavDropdown.Item href="#action4">
+                      <NavDropdown.Item to="#action3">Men</NavDropdown.Item>
+                      <NavDropdown.Item to="#action4">
                         Women
                       </NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action5">
+                      <NavDropdown.Item to="#action5">
                         Something else here
                       </NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="#">
+                    <Link to="#">
                       SIGN UP
-                    </Nav.Link> */}
+                    </Link> */}
 
 
                   </Nav>

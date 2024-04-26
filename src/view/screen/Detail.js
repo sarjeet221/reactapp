@@ -5,18 +5,32 @@ import Accordion from 'react-bootstrap/Accordion';
 import { bestseller, shop, products } from '../data/Data';
 import Card from 'react-bootstrap/Card';
 import { useLocation } from 'react-router-dom';
-
+import { addtocart } from '../data/Data';
+import { useNavigate } from 'react-router-dom';
 
 
 function Detail() {
-
+    const nav = useNavigate()
+    const [img, setImg] = useState("");
     const loc = useLocation();
     const [productDetails, setproductDetails] = useState('');
+
+
     useEffect(() => {
         console.log(loc.state);
         setproductDetails(loc.state)
     }
     )
+
+    function ImageChange(img) {
+        setImg(img)
+    }
+
+    function OnAddtocart() {
+        console.log('buttion clil');
+        addtocart.push(productDetails)
+        nav("/Addtocart", { state: productDetails })
+    }
 
 
     return (
@@ -25,16 +39,41 @@ function Detail() {
             <Container>
                 <Row>
                     <Col lg={0} sm={6}>
-                        <Image src={productDetails.image} width='100%' />
-                        <Row>
-                            <Col className='d-flex justify-content-between mt-2'>
+
+
+                        {/* 
+
+                        <Carousel>
+
                             {
-                                productDetails && productDetails.sideimage.map(img =>(
+                                productDetails && productDetails.sideimage.map(img => (
 
-                                    <Image src={img} width='10%'/>
-
-                                ))
+                                   <Carousel.Item>
+                                    <Image src={img} onClick={() => ImageChange(img)} width='10%' style={{ cursor: "pointer" }} />
+                              
+                             </Carousel.Item>
+                        ))
                             }
+
+                    </Carousel>
+
+
+
+ */}
+
+
+
+                        {/* privioous */}
+                        <Image src={img ? img : productDetails.image} width='100%' />
+                        <Row>
+                            <Col className='d-flex mt-2'>
+                                {
+                                    productDetails && productDetails.sideimage.map(img => (
+
+                                        <Image src={img} onClick={() => ImageChange(img)} width='10%' style={{ cursor: "pointer", marginRight:"5px" }} />
+
+                                    ))
+                                }
                             </Col>
                         </Row>
 
@@ -140,7 +179,7 @@ function Detail() {
                                     </Col>
                                 </Row>
                                 <Row className='my-2'>
-                                    <Button className='my-1' variant="success">ADD TO CART</Button>{' '}
+                                    <Button className='my-1' variant="success" onClick={() => OnAddtocart()}>ADD TO CART</Button>{' '}
                                     <Button className='my-1' variant="success">BUY NOW</Button>{' '}
                                 </Row>
 
@@ -163,7 +202,8 @@ function Detail() {
                                                 {/* {d.info} */}
                                             </Card.Text>
                                             <div className='d-flex justify-content-between'>
-                                                <Button variant="outline-dark">ADD TO CART</Button>   <Button variant="outline-dark">BUY NOW</Button>
+                                                <Button variant="outline-dark"  >ADD TO CART</Button>
+                                                <Button variant="outline-dark">BUY NOW</Button>
 
                                             </div>
 
@@ -183,7 +223,7 @@ function Detail() {
                     </Col>
 
                 </Row>
-            </Container>
+            </Container >
 
 
         </>

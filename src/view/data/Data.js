@@ -1,5 +1,7 @@
 export const menu=["Home","Product","Login"];
 
+export let addtocart =[]
+
 export const products=[
        {
         "id":"11",
@@ -11,7 +13,7 @@ export const products=[
         "ratinguser": 45,
         "size": ["S","M","L","XL","XXL"],
         "color": ["white","red","pink","yellow"],
-        "sideimage":[require('../image/shirt2.webp'),require('../image/shirt2.webp'),require('../image/shirt2.webp'),require('../image/shirt2.webp')]
+        "sideimage":[require('../image/shirt2.webp'),require('../image/shirt5.webp'),require('../image/shirt4.webp'),require('../image/shirt3.webp')]
 
     },
     {
@@ -23,7 +25,9 @@ export const products=[
         "rating":5,
         "ratinguser": 75,
         "size": ["S","M","XL","XXL"],
-        "color": ["white","red","yellow"]
+        "color": ["white","red","yellow"],
+        "sideimage":[require('../image/shirt2.webp'),require('../image/shirt5.webp'),require('../image/shirt4.webp'),require('../image/shirt3.webp')]
+
     },
     {
         "id":"13",

@@ -19,7 +19,11 @@
     margin: 0;
     padding: 0 20px;
     text-decoration: none;
-    color: gray;
+    color: black;
+}
+.activeLink{
+    background-color: red;
+    color: blue;
 }
 
 

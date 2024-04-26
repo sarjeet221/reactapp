@@ -10,7 +10,8 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Detail from '../screen/Detail'
 import Shop from '../screen/Shop'
 import Logout from '../screen/Logout'
-
+import AddToCart from '../screen/AddToCart'
+import Payment from '../screen/Payment'
 export default function RouterNav() {
   const [userData, setuseData] = useState('')
   useEffect(()=>{
@@ -29,6 +30,8 @@ export default function RouterNav() {
         <Route path='/Detail' Component={Detail} />
         <Route path='/Shop' Component={Shop} />
         <Route path='/Logout' Component={Logout} />
+        <Route path='/Addtocart' Component={AddToCart} />
+        <Route path='/Payment' Component={Payment} />
 
 
 
