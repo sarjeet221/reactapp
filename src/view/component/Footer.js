@@ -39,11 +39,14 @@ function Footer() {
           </Col>
 
           <Col lg={3} md={6}>
-            <h3 className="chakra-petch-semibold-italic maincolor">SIGN UP</h3>
+            <h3 className="chakra-petch-semibold-italic maincolor">MORE UPDATES</h3>
             <div className="footer-div" >
-            <Form.Control className="my-3" type="text" placeholder=" Name" />
+              <lable>NAME:</lable>
+            <Form.Control  type="text" placeholder=" Name" />
+              <lable>EMAIL:</lable>
+
             <Form.Control type="text" placeholder=" Email" />
-            <Button className='my-3' variant="outline-warning">SIGN UP</Button>{' '}
+            <Button className='my-3' variant="outline-warning">SUBSCRIBE</Button>{' '}
             </div>
           
           

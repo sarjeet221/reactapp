@@ -37,43 +37,24 @@ function Detail() {
 
         <>
             <Container>
-                <Row>
-                    <Col lg={0} sm={6}>
+                <Row xs={1} md={2} className='mt-4'>
+                    <Col md={6} xs={12}>
 
+                        <Row sm={2}>
 
-                        {/* 
-
-                        <Carousel>
-
-                            {
-                                productDetails && productDetails.sideimage.map(img => (
-
-                                   <Carousel.Item>
-                                    <Image src={img} onClick={() => ImageChange(img)} width='10%' style={{ cursor: "pointer" }} />
-                              
-                             </Carousel.Item>
-                        ))
-                            }
-
-                    </Carousel>
-
-
-
- */}
-
-
-
-                        {/* privioous */}
-                        <Image src={img ? img : productDetails.image} width='100%' />
-                        <Row>
-                            <Col className='d-flex mt-2'>
+                            <Col xs={2} sm={2} className='d-grid'>
                                 {
                                     productDetails && productDetails.sideimage.map(img => (
 
-                                        <Image src={img} onClick={() => ImageChange(img)} width='10%' style={{ cursor: "pointer", marginRight:"5px" }} />
+                                        <Image src={img} onClick={() => ImageChange(img)} width='100%' style={{ cursor: "pointer", marginRight: "5px", }} />
 
                                     ))
                                 }
+                            </Col>
+
+                            <Col xs={10} sm={10}>
+                                <Image src={img ? img : productDetails.image} width='100%' className='rounded' />
+
                             </Col>
                         </Row>
 
@@ -81,21 +62,30 @@ function Detail() {
                     <Col lg={0}>
                         <Row>
                             <Col>
-                                <strong className='my-2'>{productDetails.name}</strong><br />
-                                <strong className='my-2'>{productDetails.rate}</strong></Col>
+                                <h5 className='my-2'>{productDetails.name}</h5>
+                                <strong className='my-2'>₹ &nbsp; {productDetails.rate} /-</strong>
+                            </Col>
                         </Row>
-                        <Row>
+                        <Row className='my-2'>
                             <Col>
 
 
-                                <span>{productDetails.ratinguser} zreviews</span>
+                                <span >
+                                    <span class="material-symbols-outlined">star_rate</span>
+                                    <span class="material-symbols-outlined">star_rate</span>
+                                    <span class="material-symbols-outlined">star_rate</span>
+                                    <span class="material-symbols-outlined">star_rate</span>
+                                    <span class="material-symbols-outlined">star_rate</span>
+                                </span>
+                                <p className='mb-1'> <strong>{productDetails.ratinguser}</strong>&nbsp;reviews</p>
+
 
 
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                <p>size</p>
+                                <p>size :</p>
                                 <Row>
 
                                     <Col>
@@ -164,15 +154,17 @@ function Detail() {
                                     </Col>
                                 </Row>
 
-                                <p className='my-2'>color</p>
+                                <p className='my-2'>color :</p>
 
                                 <Row className='my-2'>
-                                    <Col>
+                                    <Col className='d-flex'>
                                         {
                                             productDetails && productDetails.color.map(c => (
-                                                // <p style={{height:"30px",width:"30px",backgroundColor:`${c}`,display:"inline-block",margin:"5px",border:"1px solid",borderRadius:"5px"}}></p>    
-                                                <button style={{ backgroundColor: `${c}`, height: "30px", width: "30px", margin: "5px", border: "1px solid", borderRadius: "5px" }}></button>
-
+                                                <div className='me-2'>
+                                                {/* <p style={{ height: "30px", width: "30px", backgroundColor: `${c}`, display: "inline-block", margin: "5px", border: "1px solid", borderRadius: "5px" }}></p> */}
+                                                    <button style={{ backgroundColor: `${c}`, height: "30px", width: "30px", margin: "5px", border: "1px solid", borderRadius: "5px" }}></button>
+                                                    <p style={{textAlign:"center"}}>{c}</p>
+                                                </div>
                                             ))
 
                                         }
@@ -190,8 +182,15 @@ function Detail() {
                 </Row>
                 <Row className='my-2'>
                     <Col>
-                        <h1 className="my-4 chakra-petch-semibold-italic maincolor">BEST SELLER</h1>
-                        <Row  >
+                        <div className='d-flex align-items-center'>
+                            <strong style={{ backgroundColor: "black", height: "1px", width: "-webkit-fill-available" }}></strong>
+                            <h1 className="m-4  chakra-petch-semibold-italic maincolor" style={{ width: "-webkit-fill-available" }}>BEST&nbsp;SELLER</h1>
+                            <strong style={{ backgroundColor: "black", height: "1px", width: "-webkit-fill-available" }}></strong>
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                            <p style={{ backgroundColor: "black", height: "1px", width: "50px", textAlign: "center", display: "block" }}></p>
+
+                        </div>                        <Row  >
                             {bestseller.map(value => (
                                 <Col className='card-box'>
                                     <Card style={{ width: '18rem' }}>

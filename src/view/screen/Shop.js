@@ -19,6 +19,15 @@ const nav=useNavigate()
   return (
     <>
     <Container>
+    <div className='d-flex align-items-center'>
+              <strong style={{ backgroundColor: "black", height: "1px", width:"-webkit-fill-available" }}></strong>
+              <h1 className="m-4  chakra-petch-semibold-italic maincolor" style={{width:"-webkit-fill-available"}}>OUR&nbsp;PRODUCTS</h1>
+              <strong style={{ backgroundColor: "black", height: "1px",width:"-webkit-fill-available"  }}></strong>
+            </div>
+            <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
+            <p style={{backgroundColor:"black",height:"1px",width:"50px",textAlign:"center",display:"block"}}></p>
+
+            </div>
     <Row className='my-2'>
           <Col>
             <Row  >

@@ -48,20 +48,31 @@ function Home() {
 
         <Row className='my-2'>
           <Col>
-            <h1 className="my-4 chakra-petch-semibold-italic maincolor">OUR PRODUCTS</h1>
-            <Row  >
-              {products.map(d =>(
+
+            <div className='d-flex align-items-center'>
+              <strong style={{ backgroundColor: "black", height: "1px", width:"-webkit-fill-available" }}></strong>
+              <h1 className="m-4  chakra-petch-semibold-italic maincolor" style={{width:"-webkit-fill-available"}}>OUR&nbsp;PRODUCTS</h1>
+              <strong style={{ backgroundColor: "black", height: "1px",width:"-webkit-fill-available"  }}></strong>
+            </div>
+            <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
+            <p style={{backgroundColor:"black",height:"1px",width:"50px",textAlign:"center",display:"block"}}></p>
+            <p className='my-1'>Must Have Item</p>
+
+            </div>
+
+            <Row className='mt-4' >
+              {products.map(d => (
                 <Col className='card-box'>
                   <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={d.image} />
                     <Card.Body>
                       <Card.Title>{d.name}</Card.Title>
                       <Card.Text>
-                       {d.info}
+                        {d.info}
                       </Card.Text>
                       <div className='d-flex justify-content-between'>
-                          <Button variant="outline-dark">ADD TO CART</Button>   <Button variant="outline-dark">BUY NOW</Button>
- 
+                        <Button variant="outline-dark">ADD TO CART</Button>   <Button variant="outline-dark">BUY NOW</Button>
+
                       </div>
 
                     </Card.Body>
@@ -75,24 +86,24 @@ function Home() {
 
         </Row>
         <Row>
-              <Col>
-              <Image src={require('../image/Brown Beige Simple Aesthetic Fashion Banner.jpg')} fluid/>
-              </Col>
+          <Col>
+            <Image src={require('../image/Brown Beige Simple Aesthetic Fashion Banner.jpg')} fluid />
+          </Col>
 
         </Row>
 
         <Row className='mt-4'>
-        <Col xs={6} md={4}>
-          <Image src={require('../image/Black and White Modern Clothing Store Logo.jpg')} rounded width='100%'/>
-        </Col>
-        <Col xs={6} md={4}>
-          <Image src={require('../image/1rt.jpg')} roundedCircle width='100%'/>
-        </Col>
-        <Col xs={6} md={4}>
-          <Image src={require('../image/2.jpg')} thumbnail width='100%'/>
-        </Col>
-      </Row>
-        
+          <Col xs={6} md={4}>
+            <Image src={require('../image/Black and White Modern Clothing Store Logo.jpg')} rounded width='100%' />
+          </Col>
+          <Col xs={6} md={4}>
+            <Image src={require('../image/1rt.jpg')} roundedCircle width='100%' />
+          </Col>
+          <Col xs={6} md={4}>
+            <Image src={require('../image/2.jpg')} roundedCircle width='100%' />
+          </Col>
+        </Row>
+
 
 
 

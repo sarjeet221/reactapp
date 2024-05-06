@@ -1,6 +1,6 @@
 :root{
 
---maincolor: lawngreen;
+--maincolor: white;
 /* --secondcolor:; */
 
 }
@@ -12,7 +12,6 @@
 }
 
 
-
 .Link{
     list-style: none;
     display: inline-flex;
@@ -20,10 +19,14 @@
     padding: 0 20px;
     text-decoration: none;
     color: black;
+    transition: all;
+    box-sizing: border-box;
+    font-size: 1.5em;
 }
-.activeLink{
-    background-color: red;
-    color: blue;
+
+.Link:hover{
+    box-shadow: 0px 3px 0px 0px black;
+
 }
 
 
@@ -71,7 +74,7 @@
 }
 .card:hover{
     cursor: pointer;
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 .footer-links{
     text-decoration: none;
@@ -107,7 +110,6 @@
 .nav-style{
     border-radius: 10px;
     color: black;
-    font-size: larger;
     font-weight: 700;
 }
 .extra{
@@ -125,3 +127,17 @@ border-radius: 10px 0 0 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     
 }
+
+/* addtocart page */
+
+.chargesp{
+    width: 100px;
+    display: inline-flex;
+    justify-content: flex-end;
+}
+
+
+@keyframes process {
+    from {width:0}
+    to {width: 100%;}
+  }
