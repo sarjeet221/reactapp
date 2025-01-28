@@ -7,6 +7,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link, NavLink } from 'react-router-dom';
+import logo from '../image/clothc.svg'
+import '../component/newcom/heading.css'
+import { FaMagnifyingGlass } from "react-icons/fa6";
+
 
 
 function Header() {
@@ -21,12 +25,9 @@ function Header() {
 
 
       <Navbar expand="lg" className="maincolor nav-style">
-        <Container>
-
-      
+        <Container>      
           <Navbar.Brand to="/">
-            <sapn className="pacifico-regular extra1" style={{ border: '2px solid' }}> Clothe</sapn>
-            <span className='pacifico-regular extra'>Compiler </span>
+            <img src={logo} height={75} width={150} />
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -53,13 +54,11 @@ function Header() {
               <Form.Control
                 type="search"
                 placeholder="Search"
-                className="me-2"
+                className="me-2 header-input"
                 aria-label="Search"
                 style={{ border: 'none' }}
               />
-              <Button variant="outline-dark" style={{ border: 'none', display: 'flex' }}  ><span class="material-symbols-outlined">
-                search
-              </span></Button>
+              <div style={{display:"flex", alignItems:"center", paddingRight:"5px", width:"30px", cursor:"pointer"}}><FaMagnifyingGlass/></div>
 
             </Form>
           </Navbar.Collapse>

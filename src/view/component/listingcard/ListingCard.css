@@ -1,0 +1,134 @@
+.listing-card {
+  width: 200px;
+  background: #f0f8ff;
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  top: 5px;
+  left: 0;
+  padding: 0 10px;
+}
+
+.date {
+  font-size: 10px;
+  background: var(--orange-web);
+  padding: 3px 5px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.red {
+  color: #bd0000ab;
+}
+.white {
+  color: var(--platinum);
+}
+.bookmark-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.product-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-img .listing-img-box {
+  width: 100%;
+  height: 150px;
+}
+
+.logo {
+  height: 100%;
+  width: auto;
+  margin: auto;
+  display: block;
+}
+
+.job-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0;
+  padding-top: 5px;
+  height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rating {
+  color: var(--orange-web);
+  font-weight: bold;
+}
+
+.rating .review {
+  font-size: 11px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.cart-btn {
+  background: var(--oxford-blue);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  border: none;
+}
+.cart-btn:hover {
+  background-color: var(--orange-web);
+}
+/* 
+id
+name
+discount
+rating
+reviews
+wishlist
+iscart
+thumbimg
+images
+video 
+size 
+color
+category
+description
+availqty
+instock
+  title,
+  rating,
+  reviews,
+  features,
+  price,
+  oldPrice,
+  freeShipping,
+  producturl
+
+
+*/

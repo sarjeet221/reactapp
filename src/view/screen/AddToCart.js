@@ -13,7 +13,8 @@ function AddToCart() {
     const [productDetails, setProductdetails] = useState('')
     const [qty, setQty] = useState(1)
     const [rate, setRate] = useState('')
-    const [totalrate, setTotyalrate] = useState()
+    const [totalrate, setTotyalrate] = useState(productDetails.rate)
+
 
 
     const loc = useLocation()
@@ -21,6 +22,9 @@ function AddToCart() {
 
     useEffect(() => {
         setProductdetails(loc.state)
+        setTotyalrate(qty * productDetails.rate)
+    },[])
+    useEffect(() => {
         setTotyalrate(qty * productDetails.rate)
     }, [qty])
 

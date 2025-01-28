@@ -25,7 +25,6 @@ function Register() {
         <Form.Control type="password" placeholder="Password" />
       </Form.Group>
       <Button className='my-1' variant="outline-warning">SIGN UP</Button>{' '}
-
     </Form>
         
         </Col>

@@ -1,0 +1,87 @@
+.product-card {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    max-width: 600px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+  }
+  
+  .product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .product-info {
+    flex: 1;
+    margin-left: 15px;
+  }
+  
+  .product-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .rating {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .features {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .feature {
+    color: blue;
+    margin-right: 5px;
+  }
+  
+  .product-description {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .price-section {
+    text-align: right;
+  }
+  
+  .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: red;
+    margin-left: 5px;
+  }
+  
+  .free-shipping {
+    color: green;
+    font-size: 14px;
+  }
+  
+  .details-btn, .wishlist-btn {
+    background: blue;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  .wishlist-btn {
+    background: transparent;
+    color: blue;
+    border: 1px solid blue;
+  }
+  
