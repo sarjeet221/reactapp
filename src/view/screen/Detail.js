@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 import { addtocart } from "../data/Data";
 import { useNavigate } from "react-router-dom";
 import Heading from "../component/newcom/Heading";
-import newdata from '../data/new.json'
+import newdata from "../data/new.json";
 import ListingCard from "../component/listingcard/Listingcard";
 
 function Detail() {
@@ -16,23 +16,37 @@ function Detail() {
   const [img, setImg] = useState("");
   const loc = useLocation();
   const [productDetails, setproductDetails] = useState(loc.state);
+  const [options, setOptions] = useState({ color: null, size: null });
 
   function ImageChange(img) {
     setImg(img);
   }
 
-  function OnAddtocart() {
-    console.log("buttion clil");
-    addtocart.push(productDetails);
-    nav("/Addtocart", { state: productDetails });
+  function OnBuy() {
+    if (options.color != null && options.size != null) {
+      console.log("buttion clil");
+      addtocart.push(productDetails);
+      nav("/Checkout", { state: { productDetails, options } });
+    }
   }
-  console.log("this is incomin data", loc.state);
-  console.log("this is incomin data after set in product", productDetails);
   const discount =
     ((productDetails.oldPrice - productDetails.price) /
       productDetails.oldPrice) *
     100;
 
+  const handleColorSelection = (color) => {
+    setOptions((prevOptions) => ({
+      ...prevOptions,
+      color: color,
+    }));
+  };
+
+  const handalsizeselection = (size) => {
+    setOptions((prevOptions) => ({
+      ...prevOptions,
+      size: size,
+    }));
+  };
   return (
     <>
       <Container>
@@ -54,7 +68,7 @@ function Detail() {
               <Col xs={10} sm={10}>
                 <div
                   className=""
-                  style={{ maxHeight: "400px", height: "100%" }}
+                  style={{ maxHeight: "340px", height: "100%" }}
                 >
                   <Image
                     src={require(`../image/${
@@ -101,18 +115,24 @@ function Detail() {
                     &nbsp;
                     {productDetails &&
                       productDetails?.color.map((c) => (
-                        <div className="me-2" key={"color_" + c}>
+                        <div                         
+                          key={"color_" + c}
+                          className="me-2"
+                        >
                           <button
+                            onClick={() => {
+                              handleColorSelection(c);
+                            }}
                             style={{
                               backgroundColor: `${c}`,
                               height: "30px",
                               width: "30px",
                               margin: "5px",
-                              border: "1px solid",
                               borderRadius: "5px",
                             }}
                           ></button>
-                          <p style={{ textAlign: "center", margin: "0px" }}>
+                          <p style={{ textAlign: "center", margin: "0px",backgroundColor:options.color == c ? "#e5e5e5" : "" }}  className={`${
+                            options.color == c ? "active" : ""}`}>
                             {c}
                           </p>
                         </div>
@@ -128,7 +148,12 @@ function Detail() {
                     {productDetails &&
                       productDetails?.size.map((d) => (
                         <Button
-                          className="me-2"
+                          onClick={() => {
+                            handalsizeselection(d);
+                          }}
+                          className={`me-2 ${
+                            options.size == d ? "active" : ""
+                          }`}
                           variant="outline-success"
                           key={"size_" + d}
                         >
@@ -191,14 +216,14 @@ function Detail() {
                   </Col>
                 </Row>
                 <div className="my-2 d-flex gap-2">
+                  <Button className="my-1 col-6" variant="success">
+                    ADD TO CART
+                  </Button>{" "}
                   <Button
                     className="my-1 col-6"
                     variant="success"
-                    onClick={() => OnAddtocart()}
+                    onClick={() => OnBuy()}
                   >
-                    ADD TO CART
-                  </Button>{" "}
-                  <Button className="my-1 col-6" variant="success">
                     BUY NOW
                   </Button>{" "}
                 </div>
@@ -206,15 +231,16 @@ function Detail() {
             </Row>
           </Col>
         </Row>
-        <Row className="my-2"> 
-            <div className="mb-5">            <Heading>Best seller</Heading>            
-
-                </div>         
-              {newdata.map((value, index) => (
-                <Col className="card-box" key={"product_"+index}>
-                  <ListingCard details={value}></ListingCard>
-                </Col>
-              ))}          
+        <Row className="my-2">
+          <div className="mb-5">
+            {" "}
+            <Heading>Best seller</Heading>
+          </div>
+          {newdata.map((value, index) => (
+            <Col className="card-box" key={"product_" + index}>
+              <ListingCard details={value}></ListingCard>
+            </Col>
+          ))}
         </Row>
         <Row className="mt-4">
           <Col>

@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "../component/newcom/heading.css";
-import logo from '../image/clothc.svg'
-
+import logo from '../image/logosvg.svg'
+import { Link } from "react-router-dom";
 
 
 function Heading({ children }) {
@@ -12,16 +12,26 @@ function Heading({ children }) {
 }
 
 function Footer() {
+const [issubscribed,setissubscribed] = useState(false);
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+  setissubscribed(true);
+  setTimeout(() => {
+    setissubscribed(false)
+  }, 2000);
+
+}
   return (
     <>
       <div className="mt-5 footer-style">
         <Container>        
-        <Row>
-          <Col lg={3} md={6}>
+        <Row className="gap-3 gap-md-0">
+          <Col lg={3} md={6} >
             <Heading>ABOUT</Heading>
 
             <div className="footer-div w-75 pt-2">
-            <img src={logo} height={75} width={150} style={{backgroundColor:"white", borderRadius:"3px"}} />
+            <img src={logo} height={50} style={{backgroundColor:"white", borderRadius:"3px"}} />
               Discover a curated collection of trendy apparel for
               all occasions.
             </div>
@@ -30,39 +40,35 @@ function Footer() {
           <Col lg={3} md={6}>
             <Heading>our services</Heading>
             <div className="footer-div">
-              <a href="#" className="footer-links">
+              <Link to="#" className="footer-links">
                 Shipping Details
-              </a>
-              <a href="#" className="footer-links">
+              </Link>
+              <Link to="#" className="footer-links">
                 Return & Exchange Policy
-              </a>
-              <a href="#" className="footer-links">
+              </Link>
+              <Link to="#" className="footer-links">
                 Discount craiteria
-              </a>
-              <a href="#" className="footer-links">
+              </Link>
+              <Link to="#" className="footer-links">
                 Offers
-              </a>
-              <a href="#" className="footer-links"></a>
-              <a href="#" className="footer-links"></a>
-              <a href="#" className="footer-links"></a>
+              </Link>
+             
             </div>
           </Col>
           <Col lg={3} md={6}>
             <Heading>EXPLORE US</Heading>
 
             <div className="footer-div">
-              <a href="#" className="footer-links">
-                HOME
-              </a>
-              <a href="#" className="footer-links">
-                ABOUT
-              </a>
-              <a href="#" className="footer-links">
-                PRODUCTS
-              </a>
-              <a href="#" className="footer-links">
-                LOGIN
-              </a>
+              <Link to="/" className="footer-links">
+                Home
+              </Link>
+              <Link to="/about" className="footer-links">
+                Abot
+              </Link>
+              <Link to="/shop" className="footer-links">
+                Shop
+              </Link>
+              
             </div>
           </Col>
 
@@ -72,13 +78,20 @@ function Footer() {
             <div className="footer-div">
               {/* <lable>NAME:</lable>
               <Form.Control className="footer-input" type="text" placeholder=" Name" /> */}
+<form onSubmit={handleSubmit }>
+
 
               <lable>EMAIL:</lable>
-              <Form.Control className="footer-input" type="text" placeholder=" Email" />
+              <Form.Control className="footer-input" type="email" required  placeholder=" Email" />
 
-              <Button className="my-3" variant="outline-warning">
+              <Button className="my-3" variant="outline-warning" type="submit" >
                 SUBSCRIBE
-              </Button>
+              </Button></form>
+              {issubscribed &&
+              <div className="fs-6 text-secondary text-center">
+                Subscription Added
+              </div> }
+
             </div>
           </Col>
         </Row></Container>

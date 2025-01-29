@@ -1,31 +1,24 @@
 import React from "react";
 import "./ProductCard.css";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart, removeFromCart, clearCart  } from "../../redux/Cartslice";
 
 
-
-const ProductCard = ({
-  image,
-  title,
-  rating,
-  reviews,
-  features,
-  price,
-  oldPrice,
-  freeShipping,
-}) => {
+const ProductCard = ({product}) => {
+  const dispatch = useDispatch();
   return (
     <div className="product-card">
-      <img src={image} alt={title} className="product-image" />
+      <img src={require(`../../image/${product.thumbimg}`)} alt={product.title} className="product-image" />
       
       <div className="product-info">
-        <h3 className="product-title">{title}</h3>
+        <h3 className="product-title">{product.name}</h3>
 
         <div className="rating">
-          {"★".repeat(Math.round(rating))} <span>{reviews}</span>
+          {"★".repeat(Math.round(product.rating))} <span>{product.reviews}</span>
         </div>
 
         <div className="features">
-          {features.map((feature, index) => (
+          {product.features.map((feature, index) => (
             <span key={index} className="feature">
               {feature} •
             </span>
@@ -36,10 +29,10 @@ const ProductCard = ({
       </div>
 
       <div className="price-section">
-        <p className="price">${price.toFixed(2)}{oldPrice && <span className="old-price"> ${oldPrice.toFixed(2)}</span>}</p>
-        {freeShipping && <p className="free-shipping">Free shipping</p>}
-        <button className="details-btn">Details</button>
-        <button className="wishlist-btn">Add to wishlist</button>
+        <p className="price">${product.price.toFixed(2)}{product.oldPrice && <span className="old-price"> ${product.oldPrice.toFixed(2)}</span>}</p>
+        {product.freeShipping && <p className="free-shipping">Free shipping</p>}
+        <button className="details-btn" onClick={()=>{dispatch(removeFromCart(product.id))}}>Remove</button>
+        {/* <button className="wishlist-btn">Add to wishlist</button> */}
       </div>
     </div>
   );

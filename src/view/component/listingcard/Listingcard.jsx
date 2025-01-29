@@ -3,9 +3,17 @@ import "./ListingCard.css";
 import img from "../../image/shirt2.webp";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart, removeFromCart, clearCart  } from "../../redux/Cartslice";
+
+
+
+
+
 
 const ListingCard = ({ details }) => {
   const navigation = useNavigate();
+  const dispatch = useDispatch();
   const discount = ((details.oldPrice - details.price) / details.oldPrice) * 100;
   
   return (
@@ -44,7 +52,7 @@ const ListingCard = ({ details }) => {
         <button
           className="cart-btn"
           onClick={() => {
-            navigation("/Detail", { state: details });
+            dispatch(addToCart(details))
           }}
         >
           Add to Cart
