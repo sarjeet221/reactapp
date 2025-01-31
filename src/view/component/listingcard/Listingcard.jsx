@@ -5,6 +5,7 @@ import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, removeFromCart, clearCart  } from "../../redux/Cartslice";
+import { setMsg  } from "../../redux/Flashmsgslice";
 
 
 
@@ -51,8 +52,8 @@ const ListingCard = ({ details }) => {
         <div className="footer"> <p className="listing-price ">${details.price.toFixed(2)}</p>
         <button style={{whiteSpace:"nowrap"}}
           className="cart-btn"
-          onClick={() => {
-            dispatch(addToCart(details))
+          onClick={() =>{ dispatch(addToCart(details)); 
+            dispatch(setMsg("Added to cart!"));
           }}
         >
           Add to Cart

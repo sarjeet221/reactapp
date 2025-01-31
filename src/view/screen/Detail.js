@@ -10,6 +10,9 @@ import { useNavigate } from "react-router-dom";
 import Heading from "../component/newcom/Heading";
 import newdata from "../data/new.json";
 import ListingCard from "../component/listingcard/Listingcard";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart, removeFromCart, clearCart  } from "../redux/Cartslice";
+import {setMsg} from '../redux/Flashmsgslice'
 
 function Detail() {
   const nav = useNavigate();
@@ -17,6 +20,7 @@ function Detail() {
   const loc = useLocation();
   const [productDetails, setproductDetails] = useState(loc.state);
   const [options, setOptions] = useState({ color: null, size: null });
+ const dispatch = useDispatch();
 
   function ImageChange(img) {
     setImg(img);
@@ -216,9 +220,9 @@ function Detail() {
                   </Col>
                 </Row>
                 <div className="my-2 d-flex gap-2">
-                  <Button className="my-1 col-6" variant="success">
+                  <Button className="my-1 col-6" variant="success" onClick={()=>{dispatch(addToCart(productDetails));dispatch(setMsg("Added to cart!"))}}>
                     ADD TO CART
-                  </Button>{" "}
+                  </Button>
                   <Button
                     className="my-1 col-6"
                     variant="success"

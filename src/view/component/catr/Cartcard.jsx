@@ -6,6 +6,7 @@ import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import {setMsg} from '../../redux/Flashmsgslice'
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
@@ -65,7 +66,7 @@ const ProductCard = ({ product }) => {
         <button
           className="details-btn"
           onClick={() => {
-            dispatch(removeFromCart(product.id));
+            dispatch(removeFromCart(product.id)); dispatch(setMsg("removed successfully"));
           }}
         >
           <span className="hide-span">Remove &nbsp;</span> <FaTrash />
