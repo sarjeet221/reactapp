@@ -28,35 +28,36 @@ const ListingCard = ({ details }) => {
       </div>
 
       <div
-        className="product-img"
+        className="product-img listing-img-box"
         onClick={() => {
           navigation("/Detail", { state: details });
-        }}
-      >
-        <div className="listing-img-box">
+        }}>
+       
           <img
             src={require(`../../image/${details.thumbimg}`)}
             alt="Company Logo"
             className="logo"
           />
-        </div>
-        <h3 className="job-title">{details.name}</h3>
+        
+       
+      </div>
+
+      <div className="Details-section"> 
+        <div><h3 className="job-title">{details.name}</h3>
         <div className="rating">
           {"★".repeat(Math.round(details.rating))}{" "}
           <span className="review">{details.reviews}</span>
-        </div>
-      </div>
-
-      <div className="footer">
-        <p className="price">${details.price.toFixed(2)}</p>
-        <button
+        </div></div>
+        <div className="footer"> <p className="listing-price ">${details.price.toFixed(2)}</p>
+        <button style={{whiteSpace:"nowrap"}}
           className="cart-btn"
           onClick={() => {
             dispatch(addToCart(details))
           }}
         >
           Add to Cart
-        </button>
+        </button></div>
+       
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 .listing-card {
-  width: 200px;
+  width: 100%;
   background: #f0f8ff;
   border-radius: 10px;
   padding: 15px;
@@ -10,12 +10,20 @@
   position: relative;
 }
 
-@media (max-width:576px) {
+@media (max-width:425px) {
 .listing-card{
   width: 100%;
+  flex-direction: row;
 }
 
-  
+
+.product-img{
+  max-width: 85px;
+  max-height: 85px;
+}
+ .Details-section{
+  width: inherit;
+ }
 }
 
 .header {
@@ -56,7 +64,7 @@
   justify-content: center;
 }
 
-.product-img .listing-img-box {
+.listing-img-box {
   width: 100%;
   height: 150px;
 }
@@ -73,7 +81,7 @@
   font-weight: 500;
   margin-bottom: 0;
   padding-top: 5px;
-  height: 25px;
+  height: 24px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -94,9 +102,10 @@
   gap: 5px;
 }
 
-.price {
-  font-size: 16px;
+.listing-price {
+  font-size: 18px;
   font-weight: bold;
+  color: #333;
   margin: 0;
 }
 
